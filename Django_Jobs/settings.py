@@ -80,12 +80,12 @@ WSGI_APPLICATION = 'Django_Jobs.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': 'db.sqlite3',
-        #'USER': 'jobuser',
-        #'PASSWORD': 'jobuserpass',
-        #'HOST': 'localhost',
-        #'PORT': '',
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        'NAME': 'job_database',
+        'USER': 'bespokeuser',
+        'PASSWORD': 'bespokeuser',
+        'HOST': 'localhost',
+        'PORT': '',
     }
 }
 
