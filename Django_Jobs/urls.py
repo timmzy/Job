@@ -28,3 +28,4 @@ urlpatterns = [
     # its going to the account folder and urls file
     #url(r'^home/', include('home.urls', namespace='home')),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+urlpatterns + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
