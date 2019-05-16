@@ -27,7 +27,7 @@ class HomeView(TemplateView):
         resume = request.POST['resume']
         location = request.POST['location']
         q = school_major + ' ' + job_type + ' ' + location
-        details = subprocess.check_output(["python", "home/scripts/JobSearch.py", q])
+        details = subprocess.check_output(["python3.6", "home/scripts/JobSearch.py", q])
         if request.session.get('result'):
             del request.session['result']
         if request.session.get('resume'):
@@ -37,7 +37,7 @@ class HomeView(TemplateView):
         if request.session.get('fname'):
             del request.session['fname']
         fname = str(details, "utf-8").split("\n")[0]
-        with open("home/temp/" + fname) as f:
+        with open("home/scripts/temp/" + fname) as f:
             data = f.read()
         request.session['result'] = ast.literal_eval(data)
         request.session['resume'] = resume

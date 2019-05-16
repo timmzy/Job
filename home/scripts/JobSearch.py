@@ -1,10 +1,12 @@
-
+#!/home/tenv/bin/python3.6
 from Job import Job
 import IndeedSearch
 import webbrowser, time
 import requests, json, sys
 from googlesearch import search
-import urllib
+import urllib, os
+
+BASE = os.path.dirname(os.path.abspath(__file__))
 
 #Take jobs retrieved from search and format them as dicts using serialize
 def jobFormat(jobs: list):
@@ -50,6 +52,6 @@ def execute(query: str):
 if __name__ == "__main__":
     y = json.dumps(execute(sys.argv[1]))
     file_name = str(time.time()).replace(".", "-") + ".txt"
-    with open("home/temp/" + file_name, 'w') as f:
+    with open(os.path.join(BASE,  "temp", file_name), 'w') as f:
         f.write(y)
     print(file_name)
